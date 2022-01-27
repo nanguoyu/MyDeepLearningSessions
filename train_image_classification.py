@@ -461,4 +461,3 @@ def accuracy(output, target, topk=(1,)):
 if __name__ == '__main__':
     main()
 # python3 train_image_classification.py  -a resnet18 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0   ~/MyDeepLearningSessions/tinyImagenet/tiny-imagenet-200
-# dl
