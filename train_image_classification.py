@@ -22,8 +22,8 @@ import torch.utils.data
 import torch.utils.data.distributed
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-import torchvision.models as models
-
+# import torchvision.models as models
+import models
 model_names = sorted(name for name in models.__dict__
                      if name.islower() and not name.startswith("__")
                      and callable(models.__dict__[name]))
@@ -460,4 +460,3 @@ def accuracy(output, target, topk=(1,)):
 
 if __name__ == '__main__':
     main()
-# python3 train_image_classification.py  -a resnet18 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0   ~/MyDeepLearningSessions/tinyImagenet/tiny-imagenet-200
