@@ -23,6 +23,7 @@ import torch.utils.data.distributed
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 # import torchvision.models as models
+
 import models
 model_names = sorted(name for name in models.__dict__
                      if name.islower() and not name.startswith("__")
@@ -294,7 +295,15 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
 
         # compute output
         output = model(images)
-        loss = criterion(output, target)
+        if "GoogLeNetOutputs" == type(output).__name__:
+            logits, aux_logits2, aux_logits1 = output
+            loss = criterion(logits, target)
+            loss_aux1 = criterion(aux_logits1, target)
+            loss_aux2 = criterion(aux_logits2, target)
+            loss = loss*0.4+loss_aux1*0.3+loss_aux2*0.3
+            output = logits
+        else:
+            loss = criterion(output, target)
 
         # measure accuracy and record loss
         acc1, acc5 = accuracy(output, target, topk=(1, 5))

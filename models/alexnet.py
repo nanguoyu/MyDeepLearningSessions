@@ -15,7 +15,7 @@ class AlexNet(nn.Module):
     Paper: https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
     """
 
-    def __init__(self, num_classes=1000):
+    def __init__(self, num_classes=1000, dropout: float = 0.2):
         super().__init__()
         self.features = nn.Sequential(
             nn.Conv2d(3, 48, kernel_size=11, stride=4, padding=2),
@@ -36,10 +36,10 @@ class AlexNet(nn.Module):
         self.classifier = nn.Sequential(
             nn.Linear(128 * 6 * 6, 2048),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.5),
+            nn.Dropout(dropout),
             nn.Linear(2048, 2048),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.5),
+            nn.Dropout(dropout),
             nn.Linear(2048, num_classes),
         )
 

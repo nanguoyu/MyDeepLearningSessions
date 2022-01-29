@@ -15,17 +15,17 @@ class VGG(nn.Module):
     Paper: https://arxiv.org/pdf/1409.1556.pdf
     """
 
-    def __init__(self, features: nn.Module, num_classes=1000):
+    def __init__(self, features: nn.Module, num_classes=1000, dropout: float = 0.2):
         super().__init__()
         self.features = features
 
         self.classifier = nn.Sequential(
             nn.Linear(512 * 7 * 7, 4096),  # 224/(2^5)=7
             nn.ReLU(inplace=True),
-            nn.Dropout(0.5),
+            nn.Dropout(dropout),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.5),
+            nn.Dropout(dropout),
             nn.Linear(4096, num_classes),
         )
 
