@@ -1,7 +1,7 @@
 
 This is a project for re-implementing and re-training some famous deep vision models on 
 tiny-Imagenet [[Introduction]](http://cs231n.stanford.edu/reports/2017/pdfs/930.pdf) 
-[[Dataset]](http://cs231n.stanford.edu/tiny-imagenet-200.zip)
+[[Download Dataset]](http://cs231n.stanford.edu/tiny-imagenet-200.zip)
 with AWS EC2 instances.
 
 Models are implemented by Pytorch. The general training scripts are modified from [
@@ -18,9 +18,9 @@ That's saying, you can train models with the same/similar GPU-supported EC2 inst
 
 ### AWS EC2
 
-1. Create a p3.2xlarge instance with Deep Learning AMI (Ubuntu 18.04) Version 56.0 ami-0e14490e647237ed6
+1. Create a `p3.2xlarge` instance with `Deep Learning AMI (Ubuntu 18.04) Version 56.0 ami-0e14490e647237ed6`
 
-2. Attach an enough EBS disk >= 200GB
+2. Attach an enough EBS disk >= `200GB`
 
 3. SSH to the machine
 
