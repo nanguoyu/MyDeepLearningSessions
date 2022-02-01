@@ -40,7 +40,7 @@ source script/setup.sh
 ## Train models
 
 
-### Classification on tinyImagenet
+### Prepare tinyImagenet
 
 Download dataset
 ```Shell
