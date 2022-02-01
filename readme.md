@@ -16,7 +16,7 @@ That's saying, you can train models with the same/similar GPU-supported EC2 inst
 
 ## Creat the basic environment
 
-### AWS EC2
+### Use an AWS EC2 Instance
 
 1. Create a `p3.2xlarge` instance with `Deep Learning AMI (Ubuntu 18.04) Version 56.0 ami-0e14490e647237ed6`
 
@@ -24,7 +24,7 @@ That's saying, you can train models with the same/similar GPU-supported EC2 inst
 
 3. SSH to the machine
 
-### Local machine 
+### Or use your local machine 
 
 TODO
 
@@ -65,4 +65,12 @@ python3 train_image_classification.py  -a vgg16 --lr 0.01 -b 64 --num-classes 20
 
 ```Shell
 python3 train_image_classification.py  -a googlenet --lr 0.01 -b 128 --num-classes 200 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0  ./tiny-imagenet-200
+```
+
+
+### Train Resnet on the tiny-Imagenet
+
+
+```Shell
+python3 train_image_classification.py  -a resnet18 --lr 0.1 -b 256 --num-classes 200 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0  ./tiny-imagenet-200
 ```

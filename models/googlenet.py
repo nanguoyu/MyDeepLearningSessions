@@ -13,17 +13,13 @@ __all__ = ['GoogLeNet', 'googlenet']
 
 # -----------------------Forked from Pytorch-------------------------------------------------------------------------#
 # https://github.com/pytorch/vision/blob/8e874ff86701fd6d881c9f845c135a649e393218/torchvision/models/googlenet.py#L20
-
 GoogLeNetOutputs = namedtuple("GoogLeNetOutputs", ["logits", "aux_logits2", "aux_logits1"])
 GoogLeNetOutputs.__annotations__ = {"logits": torch.Tensor,
                                     "aux_logits2": Optional[torch.Tensor],
                                     "aux_logits1": Optional[torch.Tensor]}
-
 # Script annotations failed with _GoogleNetOutputs = namedtuple ...
 # _GoogLeNetOutputs set here for backwards compat
 _GoogLeNetOutputs = GoogLeNetOutputs
-
-
 # -----------------------Forked from Pytorch-------------------------------------------------------------------------#
 
 

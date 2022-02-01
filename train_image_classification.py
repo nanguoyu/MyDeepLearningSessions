@@ -53,6 +53,11 @@ parser.add_argument('-b', '--batch-size', default=256, type=int,
                          'using Data Parallel or Distributed Data Parallel')
 parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
                     metavar='LR', help='initial learning rate', dest='lr')
+parser.add_argument('--gm', '--gamma', default=0.1, type=float,
+                    metavar='N', help='multiplicative factor of learning rate decay', dest='gamma')
+#
+parser.add_argument('--sp', '--step-size', default=10, type=int,
+                    metavar='N', help='period of learning rate decay.', dest='step_size')
 parser.add_argument('--momentum', default=0.9, type=float, metavar='M',
                     help='momentum')
 parser.add_argument('--wd', '--weight-decay', default=1e-4, type=float,
@@ -183,6 +188,9 @@ def main_worker(gpu, ngpus_per_node, args):
     optimizer = torch.optim.SGD(model.parameters(), args.lr,
                                 momentum=args.momentum,
                                 weight_decay=args.weight_decay)
+
+    # scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=args.step_size, gamma=args.gamma)
+    # TODO: support learning rate scheduler
 
     # optionally resume from a checkpoint
     if args.resume:
