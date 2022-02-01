@@ -14,7 +14,7 @@ Deep Learning AMI (Ubuntu 18.04) Version 56.0.
 
 That's saying, you can train models with the same/similar GPU-supported EC2 instances and AMI.
 
-## Creat the basic environment
+## Create the basic environment
 
 ### Use an AWS EC2 Instance
 
@@ -55,6 +55,8 @@ python3 train_image_classification.py  -a alexnet --lr 0.01 -b 256 --num-classes
 
 ### Train VGG16 on the tiny-Imagenet
 
+Supports: vgg11, vgg13, vgg16, and vgg19
+
 
 ```Shell
 python3 train_image_classification.py  -a vgg16 --lr 0.01 -b 64 --num-classes 200 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0  ./tiny-imagenet-200
@@ -69,6 +71,8 @@ python3 train_image_classification.py  -a googlenet --lr 0.01 -b 128 --num-class
 
 
 ### Train Resnet on the tiny-Imagenet
+
+Supports: resnet18, resnet34, resnet50, resnet101, resnet152
 
 
 ```Shell
