@@ -78,3 +78,12 @@ Supports: resnet18, resnet34, resnet50, resnet101, resnet152
 ```Shell
 python3 train_image_classification.py  -a resnet18 --lr 0.1 -b 256 --num-classes 200 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0  ./tiny-imagenet-200
 ```
+
+### Train Mobilenet on the tiny-Imagenet
+
+Supports: mobilenet_v2
+
+
+```Shell
+python3 train_image_classification.py  -a mobilenet_v2 --lr 0.1 -b 256 --num-classes 200 --multiprocessing-distributed --world-size 1 --dist-url tcp://127.0.0.1:10086 --rank 0  ./tiny-imagenet-200
+```
